@@ -1,0 +1,476 @@
+Ábrázolható feladatok nagyrészt minimum vagy maximum költségfüggvényes
+Magyarázat: a feladat elején leír 2 opciót(általában termék) hogy x termék $2 és y termék $3 profitot ér, de x termékhez ezt és azt kell csinálni vagyis korlátozva van mennyit tudok és ugyanúgy y termékhez is kell ezt és azt csinálnom ami szintén korlátoz. Ezen tevékenységeket amikkel csinálok arra írok feltételt.
+1. feladat
+MODEL:
+MAX= 50*x1+40*x2;
+[liszt] 10*x1+8*x2 <=800;
+[tej] 13*x1+6.5*x2 <=850;
+END
+2. feladat
+Model:
+MAX= 27*x1+21*x2;
+[faf] x1+x2<=80;
+[fek] 2*x1+x2<=100;
+[keresletkorlat]x1<=40;
+End
+3. feladat
+MODEL:
+MAX=3*x1+2*x2;
+[szabas] x1+x2<=40;
+[varras] 2*x1+x2<=60;
+END
+
+4. feladat 
+MODEL:
+    !profitfv;
+    [PROFIT]MIN=2*x1+3*x2;
+    !feltételek;
+    [cukor]0.5*x1+0.25*x2<=4;
+    [vitamin]1*x1+3*x2>=20;
+    [k]x1+x2=10;
+END
+5. feladat
+MODEL:
+MAX= 8*x1+4*x2;
+[ber] -8000*x1+4000*x2<=32000;
+[villanyszamnla] 6000*x1-12000*x2<=72000;
+END
+6. feladat
+MODEL:
+!célfgv.;
+[profit] MAX = 200*x1 + 300*x2;
+!feltételek;
+[festomuhely] 1/60*x1 + 1/40*x2 <= 1;
+[karos] 1/50*x1 + 1/50 * x2 <= 1;
+[KK1] x1 >= 20;
+[KK2] x2 >= 30;
+END
+
+7. feladat
+MODEL:
+MIN=50000*x1+100000*x2;
+[ferfi] 2*x1+12*x2 >=24;
+[no] 7*x1+2*x2 >=28;
+END
+
+8.feladat
+MODEL:
+MAX= 5*x1+2*x2;
+[kukorica] 5*x1+2*x2 <=60;
+[komlo] 2*x1+x2 <=25;
+END
+
+9. feladat
+MODEL:
+MAX=x1+0.5*x2;
+[tojas]4*x1+x2 <=30;
+[sutes] 2/6*x1+4/6*x2 <=8;
+@GIN(x1);
+@GIN(x2); !gin kerekít mert azt akarjuk hogy egész érték jöjjön;
+END
+
+
+
+
+
+10. feladat
+MODEL:
+MAX=2*x1-3*x2;
+[fp] 1*x1+1*x2<=3;
+[ragaszto] 1*x1+1*x2 <=10;
+x1-x2<=3;
+END
+11.feladat
+Model:
+MAX=2000*x1+3000*x2;
+[A] 2*x1+1*x2 <=6;
+[B]1*x2+2*x2 <=8;
+x1-x2<=1;
+x1<=2;
+
+12.feladat
+MODEL:
+    !célfv;
+    [profit]MAX=80*x1+60*2;
+    !feltételek;
+    [faanyag]4*x1+2*x2<=160;
+    [uveg]0*x1+2*x2<=60;
+    [szakmunka]2*x1+3*x2<=120;
+END
+13.
+MODEL:
+MAX=100*x1+150*x2;
+[terulet] 5*x1+4*x2 <=160;
+[kaja] 5*x1+3*x2 <=500;
+END
+
+szállítási feladatok 
+az előjelről győződj meg gyakorlás előtt vagyis hogy az igény oszlopok >= vagy a kapacitás sorok <= előjelesek-e
+Magyarázat a 19. feladat megoldásánál!
+
+
+
+
+
+
+
+
+17. feladat
+MODEL:
+MIN=8*x11+6*x12+10*x13+9*x14+9*x21+12*x22+13*x23+7*x24+14*x31+9*x32+16*x33+5*x34;
+[I1] 8*x11+9*x21+14*x31 >=45;
+[I2] 6*x12+12*x22+9*x32 >=20;
+[I3] 10*x13+13*x23+16*x33 >=30;
+[I4] 14*x14+9*x24+16*x34 >=30;
+
+[K1] 8*x11+6*x12+10*x13+9*x14 <=35;
+[K2] 9*x21+12*x22+13*x23+7*x24 <=50;
+[K3] 14*x31+9*x32+16*x33+5*x34<=40;
+END
+
+18. feladat
+MODEL:
+MIN=8*x11+2*x12+4*x13+7*x14+7*x21+4*x22+3*x23+2*x24+2*x31+5*x32+5*x33+9*x35;
+[I1] 8*x11+7*x21+2*x31 >= 20;
+[I2] 2*x12+4*x22+5*x32 >= 16;
+[I3] 4*x13+3*x23+5*x33 >= 42;
+[I4] 7*x14+2*x24+9*x34 >= 42;
+[K1] 8*x11+2*x12+4*x13+7*x14 <= 30;
+[K2] 7*x21+4*x22+x3*23+2*x24 <= 40;
+[K3]  2*x31+5*x32+5*x33+9*x34 <= 50;
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19. feladat
+ !a minimum sornál felírod a táblázat értékeit a megfelelő idexen sorba haladva mint pl első elem 8 az érték és 11az index(1. sor 1. oszlopának értéke 8) az lesz 8*x11; ezt így végig írod de a sor legvégi érték és az oszlop legalsó értékét (aminek már nincs indexe) azt nem szabad bele írni mert az a kapacitás vagy az igény mennyisége!
+MODEL:
+MIN=8*x11+7*x12+3*x13+4*x14+2*x15+6*x21+2*x22+7*x23+5*x24+10*x25+7*x31+5*x32+3*x33+3*x34+1*x35+4*x41+9*x42+9*x43+8*x44+2*x45;
+[R1kap] x11+x21+x31+x41+x51 <=12; !Az OSZLOP legeles leg jobb oldalán lévő összeg előtti egy SORBAN lévőeket kell összeadni;
+[R2kap] x12+x22+x32+x42+x52 >=17;
+[R3kap] x13+x23+x33+x43+x53 >=25;
+[R4kap] x14+x24+x34+x44+x54 >=35;
+
+[B1igeny] x11+x21+x31+x41<=28; !Az SOR legeles leg alján oldalán lévő összeg előtti egy OSZLOPBAN lévőeket kell összeadni;
+[B2igeny] x12+x22+x32+x42<=30;
+[B3igeny] x13+x23+x33+x43<=7;
+[B4igeny] x14+x24+x34+x44+x54<=15;
+[B5igeny] x15+x25+x35+x45+x55<=9;
+END
+20.feladat
+MODEL:
+MIN = 5*x11 + 7*x12 + 10*x13 + 1*x14+
+4*x21 + 2*x22 + 6*x23 + 4*x24+
+3*x31 + 9*x32 + 3*x33 + 8*x34;
+!Kapacitási feltételek;
+[R1kap] x11 + x12 + x13 + x14 <= 32;
+[R2kap] x21 + x22 + x23 + x24 <= 16;
+[R3kap] x31 + x32 + x33 + x34 <= 9;
+!Igényfeltételek;
+[B1ig] x11 + x21 + x31 >=16;
+[B2ig] x12 + x22 + x32 >=7;
+[B3ig] x13 + x23 + x33 >=8;
+[B4ig] x14 + x24 + x34 >=26;
+
+END
+
+
+Magyarázat hozzárendelési feladatokhoz:
+először: sets abba írod az oszlopot aztán a sorokat mint egy tömb
+vagyis: Sets:
+Oszlop(tömb1) /O1..O5/;
+Sor(tömb2) /S1..S5/;
+utána assign (Oszlop, Sor): t1új,t2új     (vagyis az assign végén új tömbnevet adsz)
+utána minimum vagy maxium legyen most pl: min=@SUM(Assign: t2új*t1új);
+utána 2 for ciklus először az oszlopok for ciklusát kell
+vagyis @for (tömb1(i):
+	@SUM(tömb2(j): t2új(i,j))=1); ez volt az oszlop for ciklusa
+@for (tömb2(j):
+	@SUM(tömb1(i): t2új(i,j))=1); ez a sor for ciklusa
+ezután feltöltöd a sorokat a datával
+DATA:
+t2új= 1 2 5 6 5
+      1 2 3 4 9;
+ÉS MÉG N SOR UGYANÍGY
+ENDDATA - vagyis itt úgy írod be soronként ahogy a feladat táblázata írja a sorokban lévő értékeket.
+23. feladat
+MODEL:
+Sets:
+Munka /G1..G5/;
+Gep/F1..F5/;
+Assign(Munka, Gep): x,ktg;
+endsets
+MIN=@SUM(Assign: ktg*x);
+@for(Munka(i):
+	@SUM(Gep (j):x(i,j))=1
+);
+@for (Gep (j): 
+	@SUM(Munka (i): x(i,j))=1
+);
+DATA:
+ktg=  8 10 9 5 2
+5 8 7 1 3
+11 14 10 3 4
+7 12 12 1 4
+11 13 12 2 3;
+ENDDATA
+End
+
+24. FELADAT VALAMI HIBA VAN BENNE
+Model:
+Sets:
+Varos /BP, DB, NYH, PECS, VAC/;
+Szemely /Jozsef, Bela, Gyula, Istvan, Janos/;
+Assign(Varos, Szemely): city,person;
+Endsets
+MIN=@SUM(Assign: person*city);
+@for(Varos (i):
+	@SUM(Szemely (j):city(i,j))=1);
+@for(Szemely(j):
+	@SUM(Varos (i):city(i,j))=1);
+DATA:
+person= 2 7 8 3 1
+	4 1 5 9 10
+	6 5 10 2 4
+	4 2 8 10 3
+	9 3 8 3 5;
+ENDDDATA
+End
+pldtár 25 (órai)
+MODEL:
+Sets:
+Gep /H1..H4/;
+Munka/Szf,Gr, Dual, Szimplex/;
+Assign(Gep, Munka): x,pont;
+endsets
+MAX=@SUM(Assign: pont*x);
+@for(Gep(i):
+	@SUM(Munka (j):x(i,j))=1);
+@for (Munka (j): 
+	@SUM(Gep (i): x(i,j))=1);
+DATA:
+pont=  80 70 75 40
+	 50 40 80 90
+	 20 60 50 70
+	 30 40 65 80;
+
+ENDDATA
+End
+
+
+
+26.feladat (órai)
+MODEL:
+Sets:
+Gep /G1..G5/;
+Munka/F1..F5/;
+Assign(Gep, Munka): x,ktg;
+endsets
+MIN=@SUM(Assign: ktg*x);
+@for(Gep(i):
+	@SUM(Munka (j):x(i,j))=1
+);
+@for (Munka (j): 
+	@SUM(Gep (i): x(i,j))=1
+);
+DATA:
+ktg=  2 3 6 6 4
+	2 4 9 8 7
+	5 1 8 4 8
+	3 3 2 5 6
+	2 7 6 8 4;
+ENDDATA
+End
+MODEL:
+SETS:
+F /F1..F4/;
+G /G1..G4/;
+ASSIGN(F,G):fx,gx;
+ENDSETS
+MIN=@SUM(Assign: gx*fx);
+@for(F(i):
+	@SUM(G(j): fx(i,j))=1);
+@for(G(j):
+	@SUM(F(i): fx(i,j))=1);
+
+
+
+
+
+DATA:
+gx= 1 4 1 2
+2 8 9 12
+3 10 11 6
+2 6 7 8;
+ENDDATA
+END
+28. FELADAT(no feasible solve found, szóval kétesélyes h hibás v nem)
+MODEL:
+SETS:
+GEP /G1..G3/;
+TEV /darabolas, hegesztes, csiszolas/;
+ASSIGN(GEP, TEV): g,w;
+ENDSETS
+MIN=@SUM(ASSIGN: g*w);
+@for(GEP (i):
+	@SUM( TEV (j):w(i,j)=1);
+
+@for(TEV (j):
+	@SUM(GEP (i):w(i,j)=1);
+
+DATA:
+w= 10 5 7
+ 15 10 20
+7 10 12;
+ENDDATA
+END
+Munkaszervezési feladatok
+Magyarázat: felírod a műszakok napok össztevők számát minimum vagy maximumként pl mint  30as
+utána soronként szabsz feltételt amibe úgy szokott lenni hogy adot sor 1 vagy több eleme ne szerepeljen az adott feltételben hanem majd egy másikban. pl valaki 5 napot dolgozik akkor 2 nap kimarad. a 30as példánál el van magyarázva.
+
+30. feladat
+MODEL:
+!Az adott nap utáni két nap ne legyen az egyenletbe
+pl hétfő sor abba kedd és szerda szabad legyen vagyis ne legyen benne!
+keddi sor: szerda csütörtök legyen szabad.
+itt a minimum függvény, annyi hogy minél kevesebb x vagyis dolgozó kelljen;
+!célfgv.;
+[profit] MIN = x1 + x2 + x3 + x4 + x5 + x6 + x7;
+!feltételek;
+[H] x1           + x4 + x5 + x6 + x7 >= 17;
+[K] x1 + x2           + x5 + x6 + x7 >= 13;
+[SZ] x1 + x2 + x3           + x6 + x7 >= 15;
+[CS] x1 + x2 + x3 + x4 +           x7 >= 19;
+[P] x1 + x2 + x3 + x4 + x5           >= 14;
+[SZO]     x2 + x3 + x4 + x5 + x6      >= 16;
+[V]          x3 + x4 + x5 + x6 + x7 >= 11;
+@GIN(x1);
+@GIN(x2);
+@GIN(x3);
+@GIN(x4);
+@GIN(x5);
+@GIN(x6);
+@GIN(x7);
+END
+
+
+
+
+
+
+
+
+
+31. feladat (nem biztos hogy jó)
+MODEL:
+MIN=x1+x2+x3+x4+x5+x6+x7;
+[M1]  x1+x2+x5+x6 >=8;
+[M2]  x2+x3+x6+x1 >=7;
+[M3]  x3+x4+x1+x2 >=6;
+[M4]  x4+x5+x2+x3 >=6;
+[M5]  x5+x6+x3+x4 >=5;
+[M6]  x6+x1+x4+x5 >=4;
+@GIN(x1);
+@GIN(x2);
+@GIN(x3);
+@GIN(x4);
+@GIN(x5);
+@GIN(x6);
+@GIN(x7);
+END
+
+32. feladat nézd meg alaposan gyakorlásnál
+MODEL:
+[profit] MAX = 20*( x11 + x12 + x13 ) + 25*( x21 + x22 + x23 );
+
+!készletfeltételek;
+[cukor] x11 + x21 <= 100;
+[mag] x12 + x22 <= 20;
+[csoki] x13 + x23 <= 30;
+
+!arányfeltételek;
+[NEmag] x12 >= 0.1*(x11 + x12 + x13);
+[NEcsoki] x13 >= 0.1*(x11 + x12 + x13);
+[KEmag] x22 >= 0.2*(x21 + x22 + x23);
+END
+
+33. feladat
+32.hez ezt írd be
+[KEcukormentes] x21=0;
+
+
+
+34. feladat
+MAX=70*(x11+x12)+40*(x21+x22);
+[M1] x12 >=0.4*(x11+x12);
+[M2] x21 >=0.7*(x21+x22);
+[szili] x1<=70
+[nitrogen] x2<=80
+
+35. feladat
+MODEL:
+!célfgv.;
+[profit] MAX = 30*x1 - 4*x2;
+!feltételek;
+[eleszto] x1 <= 5;
+[liszt] 5*x1 - x2 <= 30;
+[mk] x2 >= -30; !ez a -30 jelzi hogy eladhatja a teljes készletét is;
+!x2 lehet negatív is;
+@free(x2);
+END
+
+36. feladat így jó?
+MODEL:
+MAX=0.25*(x11+x21+x31+x41)+ 0.75*(x12+x22+x32+x42);
+[Fozes] x11+x12<=27000;
+[szinezek] x21+x22<=27000;
+[izesites] x31+x32<=27000;
+[csomagolas] x41+x42<=27000;
+[csoki] 15*x11+18.75*x13+12*x14<=27000;
+[karamell] 40*x21+56.25*x22+50*x24<=27000;
+END
+
+szállítás minta kód
+MODEL:
+! A 3 Warehouse, 4 Customer 
+   Transportation Problem;
+SETS:
+   WAREHOUSE / WH1, WH2, WH3/   : CAPACITY;
+   CUSTOMER   / C1, C2, C3, C4/ : DEMAND;
+   ROUTES( WAREHOUSE, CUSTOMER) : COST, VOLUME;
+ENDSETS
+
+! The objective;
+ [OBJ] MIN = @SUM( ROUTES: COST * VOLUME);
+
+! The demand constraints;
+ @FOR( CUSTOMER( J): [DEM]
+  @SUM( WAREHOUSE( I): VOLUME( I, J)) >= 
+   DEMAND( J));
+
+! The supply constraints;
+ @FOR( WAREHOUSE( I): [SUP]
+  @SUM( CUSTOMER( J): VOLUME( I, J)) <= 
+   CAPACITY( I));
+
+! Here are the parameters;
+DATA:
+   CAPACITY =   30, 40, 50 ;
+   DEMAND =   20, 16, 42, 42;
+   COST =      8 2 4 7
+	       7 4 3 2
+	       2 5 5 9;
+ENDDATA
+END
+
